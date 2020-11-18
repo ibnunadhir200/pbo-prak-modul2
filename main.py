@@ -1,19 +1,31 @@
-from Pecahan import Pecahan as pc
+from FightingGame import FightingGame as fg
 
 
 def main():
-	# Buat Objek
-	angka_1 = pc(3, 2)
-	angka_2 = pc(5, 6)
+	# Membuat Objek
+	raiden = fg("Raiden", 10, 20)
+	sub_zero = fg("Sub-Zero", 5, 25)
 
-	# Hitung Hasil
-	hasil = angka_1.tambah(angka_2)
+	# Pertarungan dimulai
+	print("======== GAME FIGHT ========", end="\n\n")
 
-	# Tampilkan kesimpulan
-	print("Pecahan {0}/{1} + Pecahan {2}/{3} = {4}/{5}".format(
-		angka_1.pembilang, angka_1.penyebut, angka_2.pembilang,
-		angka_2.penyebut, hasil.pembilang, hasil.penyebut
+	# Melakukan beberapa perintah
+	raiden.kick(sub_zero)
+	sub_zero.kick(raiden)
+	for i in range(3):
+		sub_zero.hit(raiden)
+	for i in range(4):
+		raiden.kick(sub_zero)
+
+	# Pertarungan berakhir
+	print("======== K.O ========", end="\n\n")
+
+	# Mengeluarkan hasil akhir
+	print("=============", end="")
+	print("\nHasil Akhir\n{0} : {1}\n{2} : {3}".format(
+		raiden.name, raiden.life_point, sub_zero.name, sub_zero.life_point
 	))
+	print("=============", end="")
 
 
 if __name__ == "__main__":
